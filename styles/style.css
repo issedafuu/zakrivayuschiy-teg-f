@@ -9,8 +9,343 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-
 .page {
   min-inline-size: 320px;
-  min-block-size: 100dvb;
+  font-family: var(--main-font);
+  font-variation-settings: 'wght' var(--main-font-weight);
+  font-size: var(--main-text-font-size);
+  background-image: var(--page-bg-gradient);
+  color: var(--text-color);
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding-bottom: 100px;
+}
+
+/* HEADER */
+.header {
+  font-family: var(--accent-font);
+  width: var(--content-width);
+  margin: 100px auto;
+  background-color: var(--section-bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(122px, 1.1364vw + 118.3636px, 130px) 0;
+  border: 2px solid #000000;
+}
+
+.logo-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; 
+}
+
+.header__logo-name {
+  font-size: clamp(49px, 2.2727vw + 41.7273px, 65px);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.header__logo-title {
+  font-size: clamp(14px, 1.2784vw + 9.9091px, 23px);
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1;
+}
+
+/*SECTION CARDS*/
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.card {
+  width: var(--content-width);
+  border: var(--card-border);
+  background-color: var(--section-bg-color);
+  margin: 0 auto;
+}
+
+.card__header {
+  padding: 4px 10px;
+}
+
+.card__title {
+  font-variation-settings: 'wght' var(--title-font-weight);
+  font-size: var(--main-text-font-size);
+}
+
+.card__hero {
+  width: 100%;
+  position: relative;
+}
+
+.card__image {
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.card__hero-title {
+  font-family: var(--accent-font);
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 1;
+  font-size: 14px;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  text-shadow: 0 0 1px var(--stroke-color);
+}
+
+@supports ( -webkit-text-stroke: 1px var(--stroke-color) ) {
+  .card__hero-title {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--stroke-color);
+    text-stroke: 1px var(--stroke-color);
+  }
+}
+
+.card__body {
+  padding: 25px;
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.card__buttons {
+  justify-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.card__icon-button {
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 0;
+  transition: border-color 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--text-color);
+}
+
+/* Стили для всех кнопок (Like, ОК, Сохранить) */
+.card__like-button,
+.modal__close-button,
+.footer__button {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  background-color: var(--button-bg-color);
+  border: 2px solid #000;
+  cursor: pointer;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  padding: 10px 36px;
+  transition: box-shadow 0.3s ease;
+}
+
+.card__like-button:focus,
+.modal__close-button:focus,
+.footer__button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.card__like-button::before,
+.modal__close-button::before,
+.footer__button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--button-pseudo-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.card__like-button:hover::before,
+.modal__close-button:hover::before,
+.footer__button:hover::before {
+  transform: scaleX(1);
+}
+
+.card__like-button .button__text,
+.modal__close-button .button__text,
+.footer__button .button__text,
+.footer__button svg {
+  position: relative;
+  z-index: 1;
+  color: var(--button-text-color);
+  mix-blend-mode: difference;
+}
+
+.footer__button svg rect {
+  fill: var(--button-text-color);
+}
+
+/*IMAGES STYLES*/
+.null-sprint img {
+  filter: brightness(1.05) contrast(105%) sepia(10%);
+}
+
+.start-first-sprint img {
+  filter: grayscale(20%) brightness(0.9) contrast(110%);
+}
+
+.end-first-sprint img {
+  filter: hue-rotate(170deg) brightness(0.85) saturate(80%) grayscale(15%);
+}
+
+.start-second-sprint img {
+  filter: invert(70%) contrast(120%) brightness(1.05);
+}
+
+.end-second-sprint img {
+  filter: contrast(90%) saturate(110%) brightness(1.05) sepia(5%);
+}
+
+.start-third-sprint img {
+  filter: contrast(110%) saturate(130%) hue-rotate(15deg) brightness(1.02);
+}
+
+.end-third-sprint img {
+  filter: contrast(95%) saturate(70%) brightness(0.9) grayscale(10%);
+}
+
+.right-now img {
+  filter: contrast(105%) saturate(110%) brightness(1.05) drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+}
+
+/*MODAL*/
+.modal {
+  border: 2px solid #000;
+  background-color: var(--section-bg-color);
+  padding: 0;
+  max-width: 353px;
+  width: 90%;
+}
+
+.modal[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 30px 30px 30px 30px;
+}
+
+.modal__icon svg {
+  display: block;
+  width: 39px;
+  height: 39px;
+}
+
+.modal__text {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.modal__close-button {
+  width: calc(100% - 60px);
+  margin: 0 30px 30px 30px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/*FOOTER*/
+.footer {
+  margin: 50px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__button {
+  border: 2px solid #000;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__icon {
+  width: 21px;
+  height: 21px;
+  display: block;
+}
+
+/*MEDIA*/
+@media (width <= 375px) {
+  .header {
+    width: 100%;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .header__logo-name {
+    font-size: 49px;
+  }
+
+  .header__logo-title {
+    font-size: 14px;
+  }
+
+  .modal__container {
+    padding: 30px 40px 30px 40px;
+  }
+
+  .modal__close-button {
+    width: calc(100% - 80px);
+    margin: 0 40px 30px 40px;
+  }
+
+  .footer__icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .footer__button {
+    flex-direction: column;
+    padding: 17px 20px;
+  }
 }
