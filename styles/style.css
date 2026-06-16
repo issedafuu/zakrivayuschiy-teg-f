@@ -142,6 +142,7 @@
   border: 2px solid transparent;
   padding: 0;
   transition: border-color 0.3s ease;
+  cursor: pointer;
 }
 
 .card__icon-button:focus {
@@ -189,6 +190,11 @@
   transform-origin: left;
   transition: transform 0.5s ease-in-out;
   z-index: -1;
+}
+
+.card__like-button {
+  padding: 10px 20px;
+  min-width: 130px;
 }
 
 .card__like-button:hover::before,

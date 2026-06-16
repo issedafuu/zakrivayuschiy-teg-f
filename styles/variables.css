@@ -13,7 +13,9 @@
         linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
     --section-bg-color: #ffffff;
     --card-border: 2px solid #000000;
-    --content-width: clamp(320px, 38%, 700px);
+
+    --content-width: clamp(320px, 80%, 700px);
+
     --button-text-color: #FFFFFF;
     --button-bg-color: #FFFFFF;
     --button-pseudo-color: #000000;

@@ -470,19 +470,21 @@
         </div>
         <p class="modal__text">Вставьте дискету, чтобы продолжить</p>
       </div>
-      <button class="modal__close-button button" type="button" onclick="this.closest('dialog').close()">
-        <span class="button__text">ОК</span>
-      </button>
+      <form method="dialog">
+        <button class="modal__close-button button" type="submit">
+          <span class="button__text">ОК</span>
+        </button>
+      </form>
     </dialog>
   </main>
-  <footer class="footer">
+  <div class="footer">
     <button class="footer__button button" type="button" onclick="saveModal.showModal()">
       <svg class="footer__icon">
         <use href="./icons/symbols.svg#diskette"></use>
       </svg>
       <span class="button__text">Сохранить на память</span>
     </button>
-  </footer>
+  </div>
   <script src="./scripts/like.js"></script>
 </body>
 
