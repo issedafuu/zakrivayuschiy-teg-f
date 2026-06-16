@@ -23,7 +23,11 @@
 
 ## Ссылка на сайт
 
-[Готовый проект]( https://github.com/issedafuu/zakrivayuschiy-teg-f )
+[Готовый проект]( https://issedafuu.github.io/zakrivayuschiy-teg-f/ )
+
+## Ссылка на репозиторий
+
+https://github.com/issedafuu/zakrivayuschiy-teg-f
 
 ## Автор
 
